@@ -6,12 +6,12 @@ import * as HttpProxyAgent from 'https-proxy-agent';
 export class AppService {
   constructor(private scrapperService: ScrapperService) {}
   async getPrice() {
-    const httpAgent = HttpProxyAgent({
-      host: 'p.webshare.io',
-      port: 80,
-      auth: 'osgkkrzc-rotate:kap3r2z2j0if',
-      rejectUnauthorized: false,
-    });
+    // const httpAgent = HttpProxyAgent({
+    //   host: 'p.webshare.io',
+    //   port: 80,
+    //   auth: 'osgkkrzc-rotate:kap3r2z2j0if',
+    //   rejectUnauthorized: false,
+    // });
 
     try {
       const html = await this.scrapperService.getHTML({
@@ -21,13 +21,6 @@ export class AppService {
           check_in: '23.10.2022',
           check_out: '29.10.2022',
           adult_1: 2,
-        },
-        timeout: 10000,
-        httpAgent: httpAgent,
-        headers: {
-          accept:
-            'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-          'accept-encoding': 'gzip, deflate, br',
         },
       });
 
